@@ -10,9 +10,14 @@ class User < ApplicationRecord
   uniqueness: { case_sesitive: false}
   has_secure_password
 
-  def remember
+  def new_session_token
     token = User.make_token
     update_attributes(:session_token => User.digest_token(token))
+  end
+
+  def new_login_token
+    token = User.make_token
+    update_attributes(:login_token => User.digest_token(token))
   end
 
   def User.make_token

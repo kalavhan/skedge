@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_01_27_023009) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "session_token"
+    t.string "login_token"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       log_in(@user)
+      keep_me if params[:session][:remember_me] == "1"
       flash.now[:notice] = "Welcome back, #{current_user.first_name}!"
-      #remember_me(current_user) if [:params][:remember_me] == "1"
       redirect_to root_path
     else
       render 'new'
