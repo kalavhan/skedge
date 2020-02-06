@@ -1,0 +1,6 @@
+<%= form_for(:session, :html => { :class => "form-login" }) do |f| %>
+  <%= f.text_field :email, placeholder: "Email"%>
+  <%= f.password_field :password, placeholder: "Password" %>
+  <%= f.submit "Login"%>
+  <%= %>
+<% end %>

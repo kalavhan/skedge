@@ -1,11 +1,9 @@
 class User < ApplicationRecord
   before_save :downcase_email
-  before_create :get_token
-  validates :name, presence: true, length: { maximum: 50 }
-  validates :lastname, presence: true, length: { maximum: 50 }
-  validates :birthdate, presence: true
-  validates :gender, presence: true
-  validates :username, presence: true, length: { in: 3...50 }
+  before_create :get_session_token
+  validates :first_name, presence: true, length: { maximum: 50 }
+  validates :last_name, presence: true, length: { maximum: 50 }
+  validates :birth_date, presence: true
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
   format: { with: VALID_EMAIL_REGEX},
@@ -14,7 +12,7 @@ class User < ApplicationRecord
 
   def remember
     token = User.make_token
-    update_attributes(:remember_token, User.digest_token(token))
+    update_attributes(:session_token => User.digest_token(token))
   end
 
   def User.make_token
@@ -30,8 +28,8 @@ class User < ApplicationRecord
       self.email.downcase!
     end
 
-    def get_token
+    def get_session_token
       token = User.make_token
-      self.remember_token = User.digest_token(token)
+      self.session_token = User.digest_token(token)
     end
 end

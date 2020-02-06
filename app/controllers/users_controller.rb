@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      log_in(@user)
       redirect_to me_path
       flash.now[:notice] = "Congratulations!!, new account created"
     else
@@ -19,6 +20,6 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permite(:first_name, :last_name, :birth_date, :email, :password)
+      params.require(:user).permit(:first_name, :last_name, :birth_date, :email, :password)
     end
 end
