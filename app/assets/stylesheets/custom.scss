@@ -1,0 +1,102 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+body {
+  background-color: #f1f0eb;
+}
+
+$gold-color: #d79922;
+$beige-color: #efe2ba;
+$orange-color: #f13c1f;
+$blue-color: #4056a1;
+$light-blue-color: #c5cbe3;
+
+$breakpoint-min-large: 1006px;
+$breakpoint-max-medium: 1005px;
+$breakpoint-min-medium: 747px;
+$breakpoint-max-small: 746px;
+
+@media (min-width: $breakpoint-min-large) {
+	.container {
+		width: 96%;
+		margin: auto;
+	}
+
+	.navbar {
+		display: grid;
+		grid-template-columns: 50% 50%;
+		width: 100%;
+		height: 55px;
+		background-color: $blue-color;
+			ul {
+				grid-column-start: 2;
+				display: flex;
+			}
+	}
+
+	.main-content-signup {
+		display: grid;
+		grid-template-columns: 50% 50%;
+		justify-items: center;
+	}
+	
+	.signup-form-container {
+		grid-column-start: 2;
+		width: 80%;
+		background-color: rgba(18, 60, 105, 0.6);
+	}
+}
+
+@media (min-width: $breakpoint-min-medium) and (max-width: $breakpoint-max-medium) {
+
+}
+
+@media (max-width: $breakpoint-max-small) {
+
+}

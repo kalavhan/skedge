@@ -1,0 +1,10 @@
+<%= form_for(:user, :html => { :class => "form" }) do |f| %>
+  <%= f.text_field :first_name, placeholder: "First name" %>
+  <%= f.text_field :last_name, placeholder: "Last name" %>
+  <%= f.date_field :birth_date %>
+  <%= f.text_field :email, placeholder: "Email"%>
+  <%= f.password_field :password, placeholder: "Password" %>
+  <%= f.password_field :password_confirmation, placeholder: "Repeat password"%>
+  <%= f.submit "Create account"%>
+  <%= %>
+<% end %>
